@@ -1,0 +1,137 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+@font-face {
+    font-family: 'apex';
+    src: url('../fontes/Apex-ExtraBold.ttf');
+}
+.container{
+    border: 2px solid black;
+    border-radius: 5px;
+}
+body {
+    
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background-image: url('../img/background1.jpg');
+    background-size: 100% 100%;
+    margin-bottom: 2px;
+    justify-content:center;
+    
+}
+h1 {
+    font-family: 'apex';
+    text-align: center;    
+    font-size: 16px;    
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: aliceblue;
+}
+
+h2 {
+    font-family: 'apex';
+    text-align: center;    
+    font-size: 16px;    
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: aliceblue;
+}
+
+.memory-game {
+    height: 500px;
+    width: 740px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px; /* perspectiva do usuario no eixo z, quanto maior, maior o efeito da perspectiva */
+    margin-bottom: 1px;
+}
+
+.card {
+    
+    height: calc(25% - 2px);
+    width: calc(25% - 2px);
+    margin: 1px;
+    position: relative;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    cursor: pointer;
+    transform: scale(1);
+    transform-style: preserve-3d; /* adiciona perspectiva 3d, para que o elemento nao fique achatada no plano */
+    transition: transform .9s; /* adiciona efeito de movimento ao flip do card */
+}
+
+.card:active{
+    transform: scale(0.97);
+    transition: transform .2s;
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  position: absolute;
+  border-radius: 5px;
+  background: #838282;
+  backface-visibility: hidden; /* todo elemento tem uma frente e um verso (ao contrario, como um espelho.) essa propriedade retira o verso */
+}
+
+.card-front {
+    transform: rotateY(180deg); /* antes, o verso aparecia transparente, pois ambas as imagens tem position absolute, ao girar no eixo Y, elas ficaram com os versos virados */
+}
+
+/* flip card animation */
+
+.card.flip {
+    transform: rotateY(180deg);
+}
+.footer {
+    font-family: 'apex';
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;    
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color:aliceblue;
+}
+
+/*Reinicia o jogo*/
+.reset {
+    
+    margin-top: 1rem;      
+    margin-bottom: 1rem;
+    display: flex;  
+    justify-content: center;    
+    align-items: center;    
+        
+     
+}
+.reset a{
+    font-family: 'apex';
+    text-decoration: none;
+    color:aliceblue;
+    font-size: 15px;    
+    padding: 1rem 1rem;
+    border: 1px solid aliceblue;
+    border-radius: 5px;
+    min-width: 2px;    
+    display: center;
+    justify-content: center;
+    align-items: center;
+}
+.reset:hover
+{
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+}
